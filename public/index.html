@@ -9,13 +9,12 @@
   <input id="word" placeholder="Type a word..." />
   <button id="check">Check</button>
   <div id="result"></div>
-
   <script>
-    // Copilot will fill in the logic later
     document.getElementById('check').addEventListener('click', () => {
       const word = document.getElementById('word').value;
-      // TODO: implement palindrome check
-      document.getElementById('result').textContent = "Not implemented yet.";
+      const normalized = word.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+      const isPalindrome = normalized === normalized.split('').reverse().join('');
+      document.getElementById('result').textContent = isPalindrome ? "Yes, it's a palindrome!" : "No, it's not a palindrome.";
     });
   </script>
 </body>
