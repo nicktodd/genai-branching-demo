@@ -12,12 +12,17 @@
   <div id="result"></div>
 
   <script>
-    // Copilot will fill in the logic later
+    function areAnagrams(str1, str2) {
+      const normalize = s => s.replace(/\s+/g, '').toLowerCase().split('').sort().join('');
+      return normalize(str1) === normalize(str2);
+    }
     document.getElementById('check').addEventListener('click', () => {
       const w1 = document.getElementById('word1').value;
       const w2 = document.getElementById('word2').value;
-      // TODO: implement anagram check
-      document.getElementById('result').textContent = "Not implemented yet.";
+      const result = areAnagrams(w1, w2)
+        ? "Yes, they are anagrams!"
+        : "No, they are not anagrams.";
+      document.getElementById('result').textContent = result;
     });
   </script>
 </body>
